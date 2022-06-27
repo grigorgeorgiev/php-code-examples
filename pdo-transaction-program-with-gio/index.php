@@ -17,5 +17,7 @@ try{
   $newInvoiceStmt->execute([$amount, $userId]);
   $db->commit();
 } catch(\Throwable $e) {
-  $db->rollBack();
+  if($db->inTransaction()){
+    $db->rollBack();
+  }
 }
