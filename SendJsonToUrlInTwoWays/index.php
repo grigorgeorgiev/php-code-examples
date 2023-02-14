@@ -50,3 +50,8 @@ $data = array(
   'itemID'      => '03e76d0a-8bab-11e0-8250-000c29b481aa'
 );
 //Warning: this won't work if the allow_url_fopen setting is set to Off in the php.ini.
+
+//A small improvement suggestion, you could also put the headers in an array, especially if more headers such as Authorization need to be added. 
+//In that case, the "\r\n" should not be added. – 
+//Beware that file_get_contents solution doesn't close the connection as it should when a server returns Connection: close in the HTTP header.
+//CURL solution, on the other hand, terminates the connection so the PHP script is not blocked by waiting for a response.
